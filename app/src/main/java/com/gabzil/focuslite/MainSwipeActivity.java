@@ -101,7 +101,7 @@ public class MainSwipeActivity extends ActionBarActivity implements ActionBar.Ta
     @Override
     public void onBackPressed(){
         finish();
-        Intent i = new Intent(MainSwipeActivity.this,StartPage.class);
+        Intent i = new Intent(MainSwipeActivity.this,ConnectionPage.class);
         startActivity(i);
     }
 }

@@ -88,7 +88,6 @@ public class LandingPage extends Activity implements Animation.AnimationListener
             System.exit(0);
         } else {
             Toast.makeText(getBaseContext(), "Press once again to exit!", Toast.LENGTH_SHORT).show();
-
         }
         back_pressed = System.currentTimeMillis();
     }
