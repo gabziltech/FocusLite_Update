@@ -4,15 +4,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.skholingua.android.custom_progressbar_circular.MainActivity" >
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Speed(km/hr) : "
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/speed"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Speed"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/go"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Speed"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:layout_below="@+id/linear"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="Go"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/go"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/style_circle_fill" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/progressBar1"
+        android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF"
-        android:layout_centerInParent="true"/>
+        android:layout_marginBottom="90dp"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
