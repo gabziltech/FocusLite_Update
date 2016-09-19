@@ -21,9 +21,9 @@ public class MainSwipeActivity extends ActionBarActivity implements ActionBar.Ta
     private ActionBar actionBar;
     private TabsPagerAdapter tabsAdapter;
     private int[] imageResId = {
-            R.mipmap.ic_first,
             R.mipmap.ic_second,
             R.mipmap.ic_third,
+            R.mipmap.ic_first,
     };
 
     @Override
@@ -34,7 +34,8 @@ public class MainSwipeActivity extends ActionBarActivity implements ActionBar.Ta
         tabsAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(tabsAdapter);
         actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#A9A9A9")));
+        actionBar.setTitle("");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.mycolor)));
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         for (int i = 0; i < 3; i++) {

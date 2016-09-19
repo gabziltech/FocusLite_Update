@@ -23,16 +23,23 @@ public class ConnectionPage extends ActionBarActivity {
 
     ImageView image;
     Button getstart;
+    DataHelp dh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connection_page);
+
         image=(ImageView)findViewById(R.id.animationView);
         getstart=(Button)findViewById(R.id.getstart);
+
+        dh = new DataHelp(this);
+        dh.UpdateSession("Yes");
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#A9A9A9")));
+        actionBar.setTitle("");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
 
         RotateAnimation anim = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setFillAfter(true);
@@ -76,6 +83,7 @@ public class ConnectionPage extends ActionBarActivity {
                 Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_log_out:
+                dh.UpdateSession("No");
                 Intent i = new Intent(ConnectionPage.this, SignIn.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);

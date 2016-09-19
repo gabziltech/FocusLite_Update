@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:padding="@dimen/activity_vertical_margin"
     tools:context=".Animation" >
 
     <ScrollView
@@ -18,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="10dp"
+                android:padding="3dp"
                 android:background="#FFFFFF"
                 android:layout_marginBottom="5dp">
 
@@ -42,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="10dp"
+                android:padding="3dp"
                 android:background="#FFFFFF"
                 android:layout_marginBottom="5dp">
 
@@ -90,7 +91,7 @@
                 android:id="@+id/animationView"
                 android:layout_width="200dp"
                 android:layout_height="180dp"
-                android:src="@mipmap/ic_ball" />
+                android:src="@mipmap/ic_cricket" />
 
             <TextView
                 android:id="@+id/in"

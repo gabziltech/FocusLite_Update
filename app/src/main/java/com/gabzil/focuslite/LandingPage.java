@@ -28,15 +28,16 @@ public class LandingPage extends Activity implements Animation.AnimationListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_page);
 
-        video = (VideoView)findViewById(R.id.videoView);
+        video = (VideoView) findViewById(R.id.videoView);
         companyname = (TextView) findViewById(R.id.companyname);
         companylogo = (ImageView) findViewById(R.id.companylogo);
-        animFadein = AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         face = Typeface.createFromAsset(getAssets(), "brush-script-mt.ttf");
         companyname.setTypeface(face);
         animFadein.setAnimationListener(this);
-        animBlink = AnimationUtils.loadAnimation(this,R.anim.blink);
+        animBlink = AnimationUtils.loadAnimation(this, R.anim.blink);
 
+        CheckSession();
         SetVideo();
         video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -52,18 +53,27 @@ public class LandingPage extends Activity implements Animation.AnimationListener
         companylogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LandingPage.this,StartPage.class);
+                Intent i = new Intent(LandingPage.this, StartPage.class);
                 startActivity(i);
             }
         });
     }
 
-    public void SetVideo()
-    {
+    public void SetVideo() {
         MediaController mc = new MediaController(this);
         video.setMediaController(mc);
         video.setVideoURI(Uri.parse("android.resource://com.gabzil.focuslite/" + R.raw.myvideo));
         video.start();
+    }
+
+    public void CheckSession() {
+        MyOpenHelper db = new MyOpenHelper(this);
+        String Session = db.getSessionTake();
+
+        if (Session.equals("Yes")) {
+            Intent i = new Intent(LandingPage.this, ConnectionPage.class);
+            startActivity(i);
+        }
     }
 
     @Override
@@ -81,8 +91,9 @@ public class LandingPage extends Activity implements Animation.AnimationListener
 
     private static long back_pressed;
     private static final int TIME_DELAY = 2000;
+
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
             finish();
             System.exit(0);
