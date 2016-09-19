@@ -77,7 +77,14 @@ public class ConnectionPage extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Toast.makeText(getApplicationContext(), "For closing the app please sign out...", Toast.LENGTH_SHORT).show();
+                if (!second) {
+                    Toast.makeText(getApplication(), "Press once again to exit!", Toast.LENGTH_SHORT).show();
+                    second = true;
+                } else {
+                    second = false;
+                    finish();
+                    System.exit(0);
+                }
                 return true;
             case R.id.action_settings:
                 Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
@@ -94,8 +101,16 @@ public class ConnectionPage extends ActionBarActivity {
         }
     }
 
+    boolean second;
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(), "For closing the app please sign out...", Toast.LENGTH_SHORT).show();
+        if (!second) {
+            Toast.makeText(getApplication(), "Press once again to exit!", Toast.LENGTH_SHORT).show();
+            second = true;
+        } else {
+            second = false;
+            finish();
+            System.exit(0);
+        }
     }
 }

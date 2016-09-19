@@ -89,17 +89,16 @@ public class LandingPage extends Activity implements Animation.AnimationListener
     public void onAnimationRepeat(Animation animation) {
     }
 
-    private static long back_pressed;
-    private static final int TIME_DELAY = 2000;
-
+    boolean second;
     @Override
     public void onBackPressed() {
-        if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+        if (!second) {
+            Toast.makeText(getApplication(), "Press once again to exit!", Toast.LENGTH_SHORT).show();
+            second = true;
+        } else {
+            second = false;
             finish();
             System.exit(0);
-        } else {
-            Toast.makeText(getBaseContext(), "Press once again to exit!", Toast.LENGTH_SHORT).show();
         }
-        back_pressed = System.currentTimeMillis();
     }
 }
