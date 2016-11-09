@@ -12,6 +12,12 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <Button
+            android:id="@+id/export"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Export CSV" />
+
         <ImageView
             android:id="@+id/animationView"
             android:layout_width="200dp"
@@ -19,12 +25,15 @@
             android:src="@mipmap/ic_cricket" />
 
         <LinearLayout
+            android:id="@+id/connectingLinear"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <TextView
+                android:id="@+id/connect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Connecting"

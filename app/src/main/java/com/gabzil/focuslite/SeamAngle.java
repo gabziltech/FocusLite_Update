@@ -86,5 +86,4 @@ public class SeamAngle extends Fragment {
 
         return v;
     }
-
 }

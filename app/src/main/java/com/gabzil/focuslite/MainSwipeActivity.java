@@ -17,12 +17,13 @@ import android.widget.Toast;
  */
 public class MainSwipeActivity extends ActionBarActivity implements ActionBar.TabListener {
 
+    DataHelp dh;
     private ViewPager viewPager;
     private ActionBar actionBar;
     private TabsPagerAdapter tabsAdapter;
     private int[] imageResId = {
-            R.mipmap.ic_second,
             R.mipmap.ic_third,
+            R.mipmap.ic_second,
             R.mipmap.ic_first,
     };
 
@@ -30,6 +31,14 @@ public class MainSwipeActivity extends ActionBarActivity implements ActionBar.Ta
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        dh = new DataHelp(this);
+
+        Intent intent = getIntent();
+        String speed = intent.getStringExtra("Speed");
+        Toast.makeText(getApplicationContext(),"Speed: "+speed, Toast.LENGTH_LONG).show();
+
+        dh.InputsSubmit(speed);
+
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabsAdapter = new TabsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(tabsAdapter);

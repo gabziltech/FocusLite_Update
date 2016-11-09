@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gabzil.focuslite" >
 
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_icon"
@@ -26,7 +33,7 @@
             android:parentActivityName=".StartPage" >
         </activity>
         <activity
-            android:name=".ConnectionPage" android:noHistory="true">
+            android:name=".ConnectionPage">
         </activity>
         <activity
             android:name=".MainSwipeActivity" android:noHistory="true"
@@ -34,6 +41,7 @@
         </activity>
         <activity android:name=".Result" android:noHistory="true"
             android:parentActivityName=".ConnectionPage" />
+        <activity android:name=".DeviceListActivity"/>
 
     </application>
 

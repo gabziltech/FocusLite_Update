@@ -18,9 +18,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int index) {
         // TODO Auto-generated method stub
         if(index == 0)
-            return new SeamAngle();
-        if(index == 1)
             return new Speed();
+        if(index == 1)
+            return new SeamAngle();
         if(index == 2)
             return new BackSpin();
 

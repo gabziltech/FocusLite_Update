@@ -25,6 +25,17 @@ public class DataHelp {
         db.insert(MyOpenHelper.TABLE_NAME, null, conV);
     }
 
+    public void InputsSubmit(String Speed) {
+        ContentValues conV = new ContentValues();
+        conV.put("Speed", Speed);
+
+        db.insert(MyOpenHelper.TABLE_NAME2, null, conV);
+    }
+
+    public void DeleteInputs() {
+        db.delete(MyOpenHelper.TABLE_NAME2, null, null);
+    }
+
     public void UpdateSession(String Session) {
         ContentValues conV = new ContentValues();
         conV.put("SessionTake", Session);

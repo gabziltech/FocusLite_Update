@@ -34,6 +34,10 @@ public class Speed extends Fragment {
         tv = (TextView) v.findViewById(R.id.textView1);
         pBar = (ProgressBar) v.findViewById(R.id.progressBar1);
         speed = (EditText) v.findViewById(R.id.speed);
+
+        MyOpenHelper db = new MyOpenHelper(getActivity());
+        String SpeedValue = db.getInputs();
+        speed.setText(SpeedValue);
         Go = (Button) v.findViewById(R.id.go);
 
         Go.setOnClickListener(new View.OnClickListener() {
